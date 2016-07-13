@@ -2,6 +2,19 @@ var CommentBox = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
+  componentDidMount: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   render: function() {
     return (
       <div className="commentBox">
@@ -58,11 +71,6 @@ var Comment = React.createClass({
     );
   }
 });
-
-var data = [
-  {id: 1, author: "Ada Lovelace", text: "Leaving a comment with a computer, check me out!"},
-  {id: 2, author: "Grace Hopper", text: "Compliments of compiled programming languages, bitches."}
-];
 
 ReactDOM.render(
   <CommentBox url="/api/comments" />,
