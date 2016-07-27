@@ -1,3 +1,7 @@
+import Container from 'muicss/lib/react/container';
+import Panel from 'muicss/lib/react/panel';
+import Button from 'muicss/lib/react/button';
+
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -35,11 +39,13 @@ var CommentBox = React.createClass({
   },
   render: function() {
     return (
+    <Container>
       <div className="commentBox">
         <h1>Comments</h1>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
+    </Container>
     );
   }
 });
@@ -83,11 +89,13 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
+      <Panel>
       <form className="commentForm" onSubmit={this.handleSubmit}>
         <input type="text" placeholder="Your name" value={this.state.author} onChange={this.handleAuthorChange} />
         <input type="text" placeholder="Say something..." value={this.state.text} onChange={this.handleTextChange} />
         <input type="submit" value="Post" />
       </form>
+      </Panel>
     );
   }
 });
