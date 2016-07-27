@@ -1,6 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Container from 'muicss/lib/react/container';
 import Panel from 'muicss/lib/react/panel';
 import Button from 'muicss/lib/react/button';
+import Form from 'muicss/lib/react/form';
+import Input from 'muicss/lib/react/input';
 
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
@@ -61,7 +65,9 @@ var CommentList = React.createClass({
     });
     return (
       <div className="commentList">
+        <Panel>
         {commentNodes}
+        </Panel>
       </div>
     );
   }
@@ -90,11 +96,11 @@ var CommentForm = React.createClass({
   render: function() {
     return (
       <Panel>
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Your name" value={this.state.author} onChange={this.handleAuthorChange} />
-        <input type="text" placeholder="Say something..." value={this.state.text} onChange={this.handleTextChange} />
-        <input type="submit" value="Post" />
-      </form>
+        <Form inline={true} className="commentForm" onSubmit={this.handleSubmit}>
+          <Input type="text" hint="Your name" value={this.state.author} onChange={this.handleAuthorChange} />
+          <Input type="text" hint="Say something..." value={this.state.text} onChange={this.handleTextChange} />
+          <input type="submit" value="Post" />
+        </Form>
       </Panel>
     );
   }
