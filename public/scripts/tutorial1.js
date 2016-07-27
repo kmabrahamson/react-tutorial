@@ -99,7 +99,7 @@ var CommentForm = React.createClass({
         <Form inline={true} className="commentForm" onSubmit={this.handleSubmit}>
           <Input type="text" hint="Your name" value={this.state.author} onChange={this.handleAuthorChange} />
           <Input type="text" hint="Say something..." value={this.state.text} onChange={this.handleTextChange} />
-          <input type="submit" value="Post" />
+          <Button type="submit" color="accent">Post</Button>
         </Form>
       </Panel>
     );
@@ -116,9 +116,11 @@ var Comment = React.createClass({
   render: function() {
     return (
       <div className="comment">
-        <h2 className="commentAuthor">
+        <div className="commentAuthor">
+          <div className="mui--text-display1">
           {this.props.author}
-        </h2>
+          </div>
+        </div>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
       </div>
     );

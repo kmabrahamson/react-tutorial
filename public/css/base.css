@@ -1,7 +1,5 @@
 body {
-  background: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  background-color: #A3B0B5;
   line-height: 1.7;
   margin: 0;
   padding: 30px;
@@ -38,10 +36,10 @@ h1 {
   font-family: cursive;
 }
 
-h2 {
+/*h2 {
   border-bottom: 1px solid #eee;
   font-size: 2em;
-}
+}*/
 
 h3 {
   font-size: 1.5em;

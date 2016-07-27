@@ -21984,6 +21984,8 @@ var _input2 = _interopRequireDefault(_input);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var CommentBox = _react2.default.createClass({
   displayName: 'CommentBox',
 
@@ -22094,7 +22096,11 @@ var CommentForm = _react2.default.createClass({
         { inline: true, className: 'commentForm', onSubmit: this.handleSubmit },
         _react2.default.createElement(_input2.default, { type: 'text', hint: 'Your name', value: this.state.author, onChange: this.handleAuthorChange }),
         _react2.default.createElement(_input2.default, { type: 'text', hint: 'Say something...', value: this.state.text, onChange: this.handleTextChange }),
-        _react2.default.createElement('input', { type: 'submit', value: 'Post' })
+        _react2.default.createElement(
+          _button2.default,
+          { type: 'submit', color: 'accent' },
+          'Post'
+        )
       )
     );
   }
@@ -22114,8 +22120,8 @@ var Comment = _react2.default.createClass({
       'div',
       { className: 'comment' },
       _react2.default.createElement(
-        'h2',
-        { className: 'commentAuthor' },
+        'div',
+        _defineProperty({ className: 'mui--text-display1' }, 'className', 'commentAuthor'),
         this.props.author
       ),
       _react2.default.createElement('span', { dangerouslySetInnerHTML: this.rawMarkup() })
