@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Styles from '../css/base.css';
 import Container from 'muicss/lib/react/container';
 import Panel from 'muicss/lib/react/panel';
 import Button from 'muicss/lib/react/button';
@@ -45,7 +46,7 @@ var CommentBox = React.createClass({
     return (
     <Container>
       <div className="commentBox">
-        <h1>Comments</h1>
+        <div className="mui--text-accent-secondary mui--text-display4">Comments</div>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
@@ -65,7 +66,7 @@ var CommentList = React.createClass({
     });
     return (
       <div className="commentList">
-        <Panel>
+        <Panel className="mui--z2">
         {commentNodes}
         </Panel>
       </div>
@@ -95,7 +96,7 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-      <Panel>
+      <Panel className="mui--z2">
         <Form inline={true} className="commentForm" onSubmit={this.handleSubmit}>
           <Input type="text" hint="Your name" value={this.state.author} onChange={this.handleAuthorChange} />
           <Input type="text" hint="Say something..." value={this.state.text} onChange={this.handleTextChange} />
@@ -118,7 +119,8 @@ var Comment = React.createClass({
       <div className="comment">
         <div className="commentAuthor">
           <div className="mui--text-display1">
-          {this.props.author}
+            <i className="fa fa-user icon" aria-hidden="true"></i>
+            {this.props.author}
           </div>
         </div>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
