@@ -46,7 +46,7 @@ var CommentBox = React.createClass({
     return (
     <Container>
       <div className="commentBox">
-        <div className="mui--text-accent-secondary mui--text-display4">Comments</div>
+        <div className="mui--text-accent mui--text-display4">Comments</div>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>

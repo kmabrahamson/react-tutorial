@@ -4,7 +4,7 @@
   "private": true,
   "license": "see LICENSE file",
   "description": "Code from the React tutorial.",
-  "main": "server.js",
+  "main": "server.rb",
   "dependencies": {
     "body-parser": "^1.4.3",
     "express": "^4.4.5",
@@ -25,7 +25,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ruby server.rb"
+    "start": "ruby server.rb",
+    "bundle": "browserify public/scripts/tutorial1.js -o public/scripts/bundle.js -t browserify-css"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,7 @@
     "comment",
     "example"
   ],
-  "author": "petehunt",
+  "author": "kmabrahamson",
   "bugs": {
     "url": "https://github.com/reactjs/react-tutorial/issues"
   },
